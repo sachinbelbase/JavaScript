@@ -1,0 +1,28 @@
+// JavaScript Execution Context
+
+{} // 1. Global Execution Context and it is refered by this keyword
+// 2. Function Execution Context
+// 3. Eval Execution Context
+
+// How these are exectued
+// 1. Memory Creation Phase or Creation Phase // In this only place is allocated
+// 2. Execution Phase 
+Example: 
+let a =10;
+let b=20;
+function sum(num1,num2){
+    let total = num1 + num2;
+    return total;
+}
+let total1 = sum(a,b);
+let total2 = sum(10,2)
+
+
+// 1.JS creates Global excution context 
+// 2.Than it creates memory phase
+// 3.Memory phase - In this phase,the variables are set to undefined 
+//   until the execution phase(next phase) and the functions are set to their definitions.
+// 4.Than it creates the execution phase
+// 5.Execution phase - In this phase,the variables are initialsed to given values and 
+//   when the function s are called,it creates a memory phase and execution phase for the function 
+//   just like the main one.
