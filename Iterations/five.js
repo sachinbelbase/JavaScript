@@ -48,3 +48,14 @@ const myCoding = [
 myCoding.forEach((obj) => {
   console.log(obj.languageFilename);
 });
+
+/* Note: forEach loop doesnot return anything if we mannuly return
+the data also the loop remain undefined */
+
+// const coding = ["js", "cpp", "python", "ruby", "java"];
+
+// const values = coding.forEach((items) => {
+//   console.log(items);
+//   return items;
+// });
+// console.log(values)
