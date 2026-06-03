@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learining Events in JS with Sachin</title>
+</head>
+
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop"
+                    src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="photoshop"></li>
+            <li><img width="200px" id="japan"
+                    src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="river"
+                    src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="owl"
+                    src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="prayer"
+                    src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+
+    // document.getElementById('owl').onclick = () =>{
+    //    alert("Owl Clicked")
+    // }
+
+    //attachEvent
+    //jQuery - on
+
+    //  document.getElementById('images').addEventListener('click', function (e) {
+    //      console.log("Clicked inside the ul")
+    //  }, false);
+
+    //  document.getElementById('owl').addEventListener('click', function (e) {
+    //    e.stopPropagation()
+    //    console.log("OWL clicked")
+    // }, false);
+
+    //document.getElementById('google').addEventListener('click', function(e){
+    //    console.log("Linked Clicked")
+    //   e.preventDefault();
+    //   e.stopPropagation();
+    //},false)
+
+
+    /*
+    Event propagation : 1.eventBubling , 2.eventCapturing
+    
+    eventBubling
+    -> it works based on bottom up method and JS Automatically used this method.
+       We used false keyword for eventBubling or declared nothing because JS automatically 
+       think as false.. Means if we used eventBubling in a particular img, link or module 
+       it will display or execute first than the parent of it.
+
+    
+    eventCapture
+    -> it works based on top down method and we used true keyword for eventCapturing..
+       Means if we used eventCapturing in a particular img, link or module 
+       it will display or execute after it parent module execute.
+       Simply we can understand top model first than go with step by step.
+
+
+    stopPropagation()
+    -> it will stop the propagation. We can also say it will prevent form bubling
+
+
+    preventDefault()
+    -> it is used to simply change the default behavior of an event i.e.
+     if google like is opening google but if we used preventDefault()
+     than it simply stop its default action.
+
+    */
+
+    document.querySelector('#images').addEventListener('click', function (e) {
+        console.log(e.target.tagName)
+        if (e.target.tagName === 'IMG') {
+            console.log(event.target.id);
+            let removeIT = e.target.parentNode
+            removeIT.remove()
+        }
+        //removeIT.parentNode.removeChild(removeIT)
+
+    }, false)
+
+</script>
+
+</html>
+
+
+<!-- /* Events
+1.Core Events
+type
+-> The name of the event that was fired — e.g. "click", "keydown", "mouseover".
+Useful when one handler is shared across multiple event types.
+btn.addEventListener("click", e => console.log(e.type)); // → "click"
+
+
+timestamp
+-> Time (in milliseconds, relative to page load) when the event was created.
+Useful for measuring time between events or animation timing.
+
+document.addEventListener("click", e => {
+console.log(e.timeStamp); // → e.g. 4821.3
+});
+
+defaultPrevented
+->True if e.preventDefault() has been called on this event, meaning the
+browser's default action (e.g. following a link, submitting a form) has
+been cancelled.
+
+link.addEventListener("click", e => {
+e.preventDefault();
+console.log(e.defaultPrevented); // → true
+});
+
+2.Target & propagation
+target
+->The element that originally triggered the event — where the event "started".
+Stays the same regardless of where the event bubbles to.
+ul.addEventListener("click", e => {
+console.log(e.target); // the
+that was clicked
+});
+
+toElement
+->For mouseover/mouseout events, the element the pointer is moving TO.
+ Non-standard and deprecated — prefer relatedTarget which does the same thing and is standard.
+
+ srcElement
+ ->An old IE alias for event.target. Not part of the W3C standard.
+  Kept for legacy compatibility — always use target in modern code.
+
+currentTarget
+->The element whose listener is currently being invoked.
+During event bubbling, this changes as the event travels up the DOM — unlike target which stays fixed.
+
+3.Mouse coordinates and Keyboard modifiers & keys
+clientX, clientY, screenX, screenY
+altkey, ctrlkey, shiftkey, keyCode
+*/ -->
+
+
+<!-- 
+
+Mouse coordinates
+
+clientX / clientY
+->Position relative to the browser viewport. Most useful for UI layout.
+
+screenX / screenY
+->Position relative to the physical screen/monitor. Rarely needed.
+
+
+Keyboard modifiers
+altKey
+->true if Alt (Option on Mac) was held when event fired.
+
+ctrlKey
+->true if Ctrl was held. For Mac Cmd key, check metaKey instead.
+
+shiftKey
+->true if Shift was held — useful for Shift+Click or Shift+Enter patterns.
+
+keyCode
+->(deprecated) Numeric key code. Use e.key (e.g. "Enter") or e.code instead.
+
+-->
