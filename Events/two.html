@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learining Events in JS with Sachin</title>
+</head>
+
+<body>
+    <h1>Code with Sachin</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    //  setTimeout(function () {
+    //     console.log("Sachin")
+    // }, 2000)
+
+    const sayMyname = function () { console.log("Sachin") }
+    // setTimeout(sayMyname, 2000)
+
+
+    const changingHead = function () {
+        document.querySelector('h1').innerHTML = "Learning JS Event (Async) with Sachin "
+    }
+    const changeME = setTimeout(changingHead, 2000)
+    // clearTimeout(changeME)
+
+    document.querySelector('#stop').addEventListener('click', function () {
+        clearTimeout(changeME)
+        console.log("Stopped")
+    })
+
+
+</script>
+
+</html>

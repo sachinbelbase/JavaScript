@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code with Sachin</title>
+</head>
+
+<body>
+    <h1>Code with Sachin</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    //  setInterval(function(){
+    //      console.log("Sachin", Date.now())
+    // },1000)
+
+    const sayDate = function (str) {
+        console.log(str, Date.now())
+    }
+
+    document.querySelector('#start').addEventListener('click', function (e_one) {
+        const intervalId = setInterval(sayDate, 1000, "Sachin")
+        console.log("Started")
+        document.querySelector('#stop').addEventListener('click', function (e_two) {
+            clearInterval(intervalId)
+            console.log("Stopped")
+        }, false)
+
+    }, false)
+</script>
+
+</html>
