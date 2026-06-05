@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Card HTML : -->
+    <button id="btn">Click</button>
+    <div class="card">
+        <img src="" style="width:100%">
+        <div class="container">
+            <h4></h4>
+            <p></p>
+        </div>
+
+    </div>
+
+    <!-- CSS For Card -->
+    <style>
+        .card {
+            /* Add shadows to create the "card" effect */
+            width: 600px;
+            height: 800px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+    </style>
+    <script>
+        const requestUrl = 'https://api.github.com/users/sachinbelbase'
+        const xhr = new XMLHttpRequest()
+        xhr.open("GET", requestUrl)
+
+        xhr.send()
+        xhr.onreadystatechange = function () {
+            console.log(xhr.readyState)
+            if (xhr.readyState === 4) {
+                const data = JSON.parse(this.responseText)
+                console.log(data)
+
+                const button = document.querySelector("#btn")
+                button.addEventListener("click", function () {
+                    document.querySelector(".card img").setAttribute("src", `${data.avatar_url}`);
+                    document.querySelector("h4").innerHTML = `${data.name} , Followers : ${data.followers}`;
+                    document.querySelector("h4").style.fontWeight = `bold`;
+                    document.querySelector("p").innerHTML = `${data.bio}  ${data.blog}`
+
+                    alert(`Name: ${data.name}\nFollowers: ${data.followers}\nBio: ${data.bio}\nBlog: ${data.blog}`)
+                })
+            }
+        }
+
+
+    </script>
+</body>
+
+
+</html>>>
