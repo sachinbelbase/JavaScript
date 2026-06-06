@@ -11,13 +11,13 @@
     <!-- Card HTML : -->
     <button id="btn">Click</button>
     <div class="card">
-        <img src="" style="width:100%">
+        <img src="">
         <div class="container">
             <h4></h4>
             <p></p>
         </div>
-
     </div>
+
 
     <!-- CSS For Card -->
     <style>
@@ -33,6 +33,7 @@
             padding: 2px 16px;
         }
     </style>
+
     <script>
         const requestUrl = 'https://api.github.com/users/sachinbelbase'
         const xhr = new XMLHttpRequest()
@@ -49,17 +50,13 @@
                 button.addEventListener("click", function () {
                     document.querySelector(".card img").setAttribute("src", `${data.avatar_url}`);
                     document.querySelector("h4").innerHTML = `${data.name} , Followers : ${data.followers}`;
-                    document.querySelector("h4").style.fontWeight = `bold`;
                     document.querySelector("p").innerHTML = `${data.bio}  ${data.blog}`
 
                     alert(`Name: ${data.name}\nFollowers: ${data.followers}\nBio: ${data.bio}\nBlog: ${data.blog}`)
                 })
             }
         }
-
-
     </script>
 </body>
 
-
-</html>>>
+</html>
