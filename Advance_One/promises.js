@@ -3,22 +3,22 @@ const PromiseOne = new Promise(function (resolve, reject) {
   // Data Base Calls, Cryptography, network
 
   setTimeout(function () {
-     console.log("Async Task Complete.");
+    console.log("Async Task Complete.");
     resolve();
   }, 1000);
 });
 
 PromiseOne.then(function () {
-     console.log("Promise consumed.");
+  console.log("Promise consumed.");
 });
 
 new Promise(function (resolve, reject) {
   setTimeout(function () {
-     console.log("Async task 2 Complete.");
+    console.log("Async task 2 Complete.");
     resolve();
   }, 1000);
 }).then(function () {
-    console.log("Promise 2 consumed.");
+  console.log("Promise 2 consumed.");
 });
 
 const PromiseThree = new Promise(function (resolve, reject) {
@@ -28,7 +28,7 @@ const PromiseThree = new Promise(function (resolve, reject) {
 });
 
 PromiseThree.then(function (user) {
-    console.log(user);
+  console.log(user);
 });
 
 /*
@@ -45,7 +45,7 @@ const PromiseFour = new Promise(function (resolve, reject) {
   }, 1000);
 });
 PromiseFour.then(function (user) {
-    console.log(user);
+  console.log(user);
   return user.username;
 })
   .then(function (username) {
@@ -96,7 +96,8 @@ consumePromiseFive();
 // }
 // getAllData();
 
-fetch("https://api.github.com/users/sachinbelbase")
+response = fetch("https://api.github.com/users/sachinbelbase");
+response
   .then(function (response) {
     return response.json();
   })
