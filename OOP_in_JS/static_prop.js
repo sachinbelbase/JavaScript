@@ -13,6 +13,7 @@ class User {
 }
 
 const user = new User("Ram");
+user.loggedMe();
 // console.log(user.createID())
 
 class Teacher extends User {
@@ -23,4 +24,5 @@ class Teacher extends User {
 }
 const teacher = new Teacher("Rusna", "Rusna@teacher.com");
 teacher.loggedMe();
+// console.log(teacher instanceof User)
 // console.log(teacher.createID());
