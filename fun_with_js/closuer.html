@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closuer</title>
+</head>
+
+<body style="background-color: #414141;">
+    <button id="pink">Pink</button>
+    <button id="navy">Navy</button>
+
+</body>
+<script>
+    //   function outer() {
+    //   let name = "Sachin";
+    //   function inner() {
+    //     console.log("Inner:", name);
+    //   }
+    //   function innerTwo() {
+    //     console.log("Inner Two:", name);
+    //   }
+    //   inner();
+    //   innerTwo();
+    // }
+    // outer();
+    // console.log("To Outer:", name);
+
+    // function outer() {
+    //   let name = "Sachin";
+    //   function inner() {
+    //     console.log("Inner:", name);
+    //   }
+    //   return inner;
+    // }
+    // let myouter = outer();
+    // myouter();
+
+
+</script>
+
+
+<script>
+    function clickHandler(color) {
+
+        function changeColor () {
+            document.body.style.backgroundColor = `${color}`
+        }
+        return changeColor
+    }
+    document.getElementById('pink').onclick = clickHandler('pink')
+    document.getElementById('navy').onclick = clickHandler('navy')
+
+</script>
+
+</html>

@@ -41,3 +41,4 @@ const totalPrice = shoppingCart.reduce((preprice, curprice) => {
   return maxPricetoPay;
 }, 0);
 console.log(totalPrice);
+
